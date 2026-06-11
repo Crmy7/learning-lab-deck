@@ -5,14 +5,13 @@ import { CONCEPTS } from './data/concepts'
 import SlideShell from './components/SlideShell.vue'
 import CodeBlock from './components/CodeBlock.vue'
 import ConceptCodeSlide from './components/ConceptCodeSlide.vue'
-import FlavorGrid from './components/FlavorGrid.vue'
 
 const { current, total, go, setTotal } = useDeck()
 
 // Index de départ des slides « concept » (après les 5 premières :
 // titre, pourquoi, histoire, fondamentaux, repère 3D).
 const CONCEPT_BASE = 5
-const TOTAL = CONCEPT_BASE + CONCEPTS.length + 7 // 5 + 7 + 7 = 19
+const TOTAL = CONCEPT_BASE + CONCEPTS.length + 6 // 5 + 6 + 6 = 17
 setTotal(TOTAL)
 
 const pad = (n) => String(n).padStart(2, '0')
@@ -23,11 +22,10 @@ const progress = computed(() => `${((current.value + 1) / total.value) * 100}%`)
 const i = {
   roadmap: CONCEPT_BASE + CONCEPTS.length, // 11
   novaIntro: CONCEPT_BASE + CONCEPTS.length + 1, // 12
-  novaDA: CONCEPT_BASE + CONCEPTS.length + 2, // 13
-  config: CONCEPT_BASE + CONCEPTS.length + 3, // 14
-  bridge: CONCEPT_BASE + CONCEPTS.length + 4, // 15
-  bilan: CONCEPT_BASE + CONCEPTS.length + 5, // 16
-  thanks: CONCEPT_BASE + CONCEPTS.length + 6, // 17
+  config: CONCEPT_BASE + CONCEPTS.length + 2, // 13
+  bridge: CONCEPT_BASE + CONCEPTS.length + 3, // 14
+  bilan: CONCEPT_BASE + CONCEPTS.length + 4, // 15
+  thanks: CONCEPT_BASE + CONCEPTS.length + 5, // 16
 }
 
 // --- Code embarqué dans les slides ---
@@ -36,14 +34,6 @@ camera.position.set(1.15, 0.72, 1.35) // x, y, z
 
 // …qui regarde un endroit précis
 camera.lookAt(0, 0, 0)                 // l'origine`
-
-const novaCode = `// L'étiquette est PEINTE puis posée comme texture
-const texture = new THREE.CanvasTexture(canvas)
-labelBaseMat.map = makeLabelTexture(flavor)
-
-// Changement de saveur = crossfade (GSAP)
-gsap.to(labelFadeMat, { opacity: 1, duration: 0.7 })
-gsap.to(rimLight.color, { ...pick(flavor.rim) })`
 
 const configCode = `// Variante teintée : texture grise + couleur multipliée
 function tinted(base, grayMap, hex) {
@@ -265,7 +255,7 @@ onBeforeUnmount(() => {
       </div>
     </SlideShell>
 
-    <!-- 6 → 12 — CONCEPTS (data-driven) -->
+    <!-- 6 → 11 — CONCEPTS (data-driven) -->
     <ConceptCodeSlide
       v-for="(c, idx) in CONCEPTS"
       :key="c.wm"
@@ -274,8 +264,8 @@ onBeforeUnmount(() => {
     />
 
     <!-- 12 — ROADMAP -->
-    <SlideShell :index="i.roadmap" wm="13">
-      <div class="kicker">13 · Notre démarche</div>
+    <SlideShell :index="i.roadmap" wm="12">
+      <div class="kicker">12 · Notre démarche</div>
       <h2>Roadmap d'apprentissage</h2>
       <div class="phases">
         <div class="phase"><div class="ph-n">Phase 1</div><h4>Veille &amp; comparaison</h4><p>Benchmark des technos 3D, lecture de la doc, périmètre du POC.</p></div>
@@ -291,8 +281,8 @@ onBeforeUnmount(() => {
     </SlideShell>
 
     <!-- 13 — POC NOVA INTRO -->
-    <SlideShell :index="i.novaIntro" wm="14">
-      <div class="kicker">14 · POC n°1</div>
+    <SlideShell :index="i.novaIntro" wm="13">
+      <div class="kicker">13 · POC n°1</div>
       <h2><span style="color:var(--accent)">NOVA</span> — la canette 3D</h2>
       <div class="cols">
         <div>
@@ -315,26 +305,9 @@ onBeforeUnmount(() => {
       </div>
     </SlideShell>
 
-    <!-- 14 — POC NOVA · DA + CODE -->
-    <SlideShell :index="i.novaDA" wm="15">
-      <div class="kicker">15 · POC n°1</div>
-      <h2>Une étiquette <span style="color:var(--accent)">peinte en code</span></h2>
-      <p class="lead" style="font-size:1rem;max-width:80ch;margin-bottom:.4rem">Chaque saveur pilote une <span class="hl">palette complète</span> — canette, accent, fond, glow, particules. « Baie Givrée » <span style="color:var(--accent)">#a32cf0</span> a inspiré le thème violet de cette présentation.</p>
-      <FlavorGrid />
-      <div class="split" style="margin-top:1.6rem">
-        <div>
-          <ul class="clean tight">
-            <li><span class="ic">🖌</span><span>L'étiquette n'est pas une image toute faite : elle est <b>dessinée par le code</b> (dégradé, logo, infos), puis « collée » sur la canette.</span></li>
-            <li><span class="ic">⟂</span><span>Changer de saveur = un <b>fondu enchaîné</b> entre deux étiquettes ; la lumière d'ambiance suit.</span></li>
-          </ul>
-        </div>
-        <CodeBlock file="utils/createCan.js" lang="canvas + gsap" :code="novaCode" />
-      </div>
-    </SlideShell>
-
-    <!-- 15 — POC CONFIGURATEUR -->
-    <SlideShell :index="i.config" wm="16">
-      <div class="kicker">16 · POC n°2</div>
+    <!-- 14 — POC CONFIGURATEUR -->
+    <SlideShell :index="i.config" wm="14">
+      <div class="kicker">14 · POC n°2</div>
       <h2>Le configurateur mobilier</h2>
       <div class="split">
         <div>
@@ -351,8 +324,8 @@ onBeforeUnmount(() => {
     </SlideShell>
 
     <!-- 16 — PONT VUE / THREE -->
-    <SlideShell :index="i.bridge" wm="17">
-      <div class="kicker">17 · Architecture</div>
+    <SlideShell :index="i.bridge" wm="15">
+      <div class="kicker">15 · Architecture</div>
       <h2>Le pont <span style="color:var(--accent)">Vue ⇄ Three.js</span></h2>
       <div class="split">
         <div>
@@ -367,8 +340,8 @@ onBeforeUnmount(() => {
     </SlideShell>
 
     <!-- 17 — BILAN -->
-    <SlideShell :index="i.bilan" wm="18">
-      <div class="kicker">18 · Bilan &amp; perspectives</div>
+    <SlideShell :index="i.bilan" wm="16">
+      <div class="kicker">16 · Bilan &amp; perspectives</div>
       <h2>De zéro à deux POC en prod</h2>
       <div class="cols">
         <div class="card">

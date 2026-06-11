@@ -119,30 +119,7 @@ this.controls.maxPolarAngle = Math.PI / 2 - 0.03 // pas sous le sol`,
   },
   {
     wm: '11',
-    kicker: '11 · Concept 8',
-    titleHtml: 'Savoir quel objet on a cliqué',
-    bullets: [
-      { ic: '⌖', html: 'On traduit la <b>position du clic</b> à l’écran en repère que la 3D comprend.' },
-      { ic: '➶', html: 'On <b>lance un rayon</b> depuis la caméra à travers ce point — comme un laser.' },
-      { ic: '◎', html: 'Le <b>1<sup>er</sup> objet touché</b> par le rayon, c’est la pièce que l’utilisateur veut modifier.' },
-    ],
-    file: 'lib/three/engine.ts · configurateur',
-    lang: 'three.js',
-    code: `// CONCEPT №8 — Quel objet a-t-on cliqué ?
-// 1. pixel → coordonnées normalisées [-1, 1]
-this.pointer.x = (e.clientX / rect.width) * 2 - 1
-this.pointer.y = -(e.clientY / rect.height) * 2 + 1
-
-// 2. un rayon depuis la caméra à travers ce pixel
-this.raycaster.setFromCamera(this.pointer, this.camera)
-const hits = this.raycaster.intersectObjects(group.children, true)
-
-// 3. le 1er objet touché = la pièce sélectionnée
-const part = hits[0]?.object.userData.partId ?? null`,
-  },
-  {
-    wm: '12',
-    kicker: '12 · Concept 4',
+    kicker: '11 · Concept 4',
     titleHtml: 'glTF — « le JPEG de la 3D »',
     bullets: [
       { ic: '📦', html: 'Un fichier <code class="inl">.glb</code> contient <b>tout l’objet</b> : sa forme, ses images de surface et ses matériaux, préparés par un designer.' },
