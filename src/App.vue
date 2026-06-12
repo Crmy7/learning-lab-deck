@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
     <SlideShell :index="0">
       <div class="kicker">Learning Lab · Soutenance M2</div>
       <h1><span class="accent">Three.js</span><br>Des expériences 3D temps réel</h1>
-      <p class="lead">De la canette manipulable au configurateur de mobilier — la 3D interactive directement dans une page web, <span class="hl">sans rien installer.</span></p>
+      <p class="lead">De la canette manipulable au configurateur de mobilier — la 3D interactive directement dans une page web.</p>
       <div class="meta">
         <span><b>Projet</b> · 2 POC déployés en production</span>
         <span><b>Charles RÉMY, Jean BEQUILLEUX</b> · Équipe Learning Lab</span>
