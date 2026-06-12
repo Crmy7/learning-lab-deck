@@ -102,7 +102,7 @@ onBeforeUnmount(() => {
       <p class="lead">De la canette manipulable au configurateur de mobilier — la 3D interactive directement dans une page web, <span class="hl">sans rien installer.</span></p>
       <div class="meta">
         <span><b>Projet</b> · 2 POC déployés en production</span>
-        <span><b>Vos noms</b> · Équipe Learning Lab</span>
+        <span><b>Charles RÉMY, Jean BEQUILLEUX</b> · Équipe Learning Lab</span>
         <span><b>2026</b></span>
       </div>
     </SlideShell>
