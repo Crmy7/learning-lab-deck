@@ -371,11 +371,11 @@ onBeforeUnmount(() => {
       <h1 style="font-size:clamp(3rem,7vw,6rem)">Questions ?</h1>
       <div class="qr-row">
         <div class="qr">
-          <div class="box"><img alt="QR NOVA" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://nova-poc.vercel.app"></div>
+          <div class="box"><img alt="QR NOVA" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://3d-can.charlesremy.dev/"></div>
           <span>POC · NOVA</span>
         </div>
         <div class="qr">
-          <div class="box"><img alt="QR Configurateur" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://configurateur-poc.vercel.app"></div>
+          <div class="box"><img alt="QR Configurateur" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://3d-chair.charlesremy.dev/"></div>
           <span>POC · Configurateur</span>
         </div>
       </div>
