@@ -387,5 +387,4 @@ onBeforeUnmount(() => {
     <span class="brand-sm">Learning Lab</span>
     <span>{{ counter }}</span>
   </div>
-  <div class="nav-hint">← → · espace · pour naviguer</div>
 </template>
